@@ -1,0 +1,173 @@
+# VNaaS REST API
+
+## `/novels&character_id=<character id>&name=<novel name>`
+
+Returns a list of available visual novels. Returns
+an empty list if no novels match the query parameters.
+
+Query parameters:
+
+- `character_id`: Optional. Filters results by novels containing the specified character.
+- `name`: Optional. Filters results by novels with the specified name.
+
+Example output:
+
+```JSON
+[
+    {
+        "id": 1234,
+        "name": "Hoshizora no Memoria",
+        "characters": [
+            {
+                "id": 9999,
+                "name": "Mare S Ephemeral"
+            },
+            {
+                "id": 10000,
+                "name": "Asuho Minahoshi"
+            }
+        ]
+    },
+    {
+        "id": 1235,
+        "name": "Irotoridori no Sekai",
+        "characters": [
+            {
+                "id": 5000,
+                "name": "Shinku Nikaidou"
+            },
+            {
+                "id": 5001,
+                "name": "Mio Kisaragi"
+            }
+        ]
+    }
+]
+```
+
+
+## `/novels/<novel id>`
+
+Returns information about a single visual novel. Returns 404 if
+the specified novel does not exist.
+
+Example output:
+
+```JSON
+{
+    "id": 1234,
+    "name": "Hoshizora no Memoria",
+    "characters": [
+        {
+            "id": 9999,
+            "name": "Mare S Ephemeral"
+        },
+        {
+            "id": 10000,
+            "name": "Asuho Minahoshi"
+        }
+    ]
+}
+```
+
+
+## `/characters?novel_id=<novel id>&name=<character name>`
+
+Returns a list of characters in the database. Returns
+an empty list if no characters match the query parameters.
+
+Query parameters:
+
+- `novel_id`: Optional. Filters results by characters from the specified novel.
+- `name`: Optional. Filters results by characters with the specified name.
+
+If you do not provide the query parameter, all characters
+in the database will be returned.
+
+Example output:
+
+```JSON
+[
+    {
+        "id": 9999,
+        "name": "Mare S Ephemeral",
+        "novels": [
+            {
+                "id": 1234,
+                "name": "Hoshizora no Memoria"
+            },
+            {
+                "id": 1236,
+                "name": "Hoshizora no Memoria Eternal Heart"
+            }
+        ]
+    },
+    {
+        "id": 5000,
+        "name": "Shinku Nikaidou",
+        "novels": [
+            {
+                "id": 1235,
+                "name": "Irotoridori no Sekai",
+            },
+            {
+                "id": 1237,
+                "name": "Irotoridori no Hikari"
+            }
+        ]
+    }
+]
+```
+
+
+## `/characters/<character id>`
+
+Returns information about a single character. Returns 404 if
+the specified character does not exist.
+
+Example output:
+
+```JSON
+{
+    "id": 9999,
+    "name": "Mare S Ephemeral",
+    "novels": [
+        {
+            "id": 1234,
+            "name": "Hoshizora no Memoria"
+        },
+        {
+            "id": 1236,
+            "name": "Hoshizora no Memoria Eternal Heart"
+        }
+    ]
+}
+```
+
+
+## `/random_quote?novel_id=<novel id>&character_id=<character id>`
+
+Returns a random quote from the database. Returns 404 if there
+are no quotes matching the query parameters.
+
+Query parameters:
+
+- `novel_id`: Optional. Filters results by quotes from the specified novel.
+- `character_id`: Optional. Filters results by quotes from the specified character.
+
+Example output:
+
+```JSON
+{
+    "id": 1111,
+    "text": "Bakabaka",
+    "character": {
+        "id": 9999,
+        "name": "Mare S Ephemeral"
+    },
+    "novel": {
+        "id": 1234,
+        "name": "Hoshizora no Memoria"
+    }
+}
+```

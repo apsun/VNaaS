@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <title>Visual Novel as a Service</title>
+    </head>
+    <body>
+        <header>Visual Novel as a Service</header>
+        <blockquote>
+            <p>{{ quote_text }}</p>
+            <cite>{{ quote_cite }}</cite>
+        </blockquote>
+        <footer>Find the full API on <a href="https://github.com/apsun/VNaaS">GitHub</a>!</footer>
+    </body>
+</html>

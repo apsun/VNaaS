@@ -1,0 +1,9 @@
+# Compiled Python files
+__pycache__/
+*.py[cod]
+
+
+# Random stuff
+.DS_Store
+Thumbs.db
+desktop.ini
