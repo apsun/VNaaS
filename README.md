@@ -20,12 +20,12 @@ A demo will be available soon, stay tuned!
 | いろとりどりのヒカリ                     | Irotoridori no Hikari                           |
 | アストラエアの白き永遠                   | AstralAir no Shiroki Towa                       |
 
-### What about <novel name here>?
+### What about (novel name here)?
 
 Unfortunately, reverse engineering games is a tedious process, and I am
 just a student with an unhealthy addiction for visual novels. If you
-wish to see your favorite game added to the list, you will likely have
-to obtain the data yourself.
+wish to see your favorite game added to the list, you can help by creating
+a resource extractor module for that game (more info coming soon).
 
 ### My game has a fansub, will it be added to the database?
 

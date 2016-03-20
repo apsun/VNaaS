@@ -1,5 +1,7 @@
 # VNaaS REST API
 
+All API paths are prefixed with `/api/v1`.
+
 ## `/novels&character_id=<character id>&name=<novel name>`
 
 Returns a list of available visual novels. Returns
