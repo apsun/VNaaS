@@ -6,9 +6,13 @@ Visual Novel as a Service, for all\* of your visual novel quote needs.
 
 ## FAQ
 
-### How can I use this?
+### How do I use this?
 
 A demo will be available soon, stay tuned!
+
+### Is there an API?
+
+Certainly, [here's the documentation!](API.md)
 
 ### Which novels are available?
 
@@ -39,6 +43,22 @@ Use your imagination! Examples include:
 - Twitter bot
 - Email signature
 
+### I cloned the repository, how do I run this?
+
+You will have to generate the data yourself, but don't worry! All the tools
+needed to do so are provided in the `utils` directory. For the supported games,
+the steps are as follows:
+
+1. Generate the database
+    - Run `sqlite3 data.db < utils/schema.sql`
+2. Populate the database
+    - You will need the original .hcb files from the game!
+    - Find the resource extractor script for the game in `utils/favorite/hcbinfo`
+    - Run `python3 utils/favorite/hcb2db.py data.db input.hcb extractor.py`
+    - Repeat for any other games you wish to add
+3. Start the web server
+    - Run `python3 web/vnaas.py data.db`
+
 ### Shut up and take my donations!
 
 Please support the developers of the games instead, they're the ones who
@@ -46,6 +66,12 @@ truly make this possible!
 
 Of course, you may donate your time and effort instead - those are greatly
 appreciated :-)
+
+## Requirements
+
+- Python 3
+- [Flask](http://flask.pocoo.org/)
+- [SQLite3](https://www.sqlite.org/download.html) (sqlite3 binary)
 
 ## License
 
