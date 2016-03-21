@@ -78,7 +78,7 @@ def get_all_characters(cursor, character_id=None, novel_id=None, name=None, incl
     chars = {}
     for row in cursor.execute(char_query, params):
         if not row[0] in chars:
-            chars[row[0]] = vntypes.Character(row[0], row[1], [])
+            chars[row[0]] = vntypes.Character(row[0], row[1])
     char_list = sorted(chars.values(), key=lambda c: c.vndb_id)
 
     if include_novels:
