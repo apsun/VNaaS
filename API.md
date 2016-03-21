@@ -1,8 +1,16 @@
 # VNaaS REST API
 
-All API paths are prefixed with `/api/v1`.
+All API paths are prefixed with `/api/v1`. For example, the URL
+for querying novels is `/api/v1/novels`.
 
-## `/novels&character_id=<character id>&name=<novel name>`
+Query parameters should be added using the standard format,
+`base_url?key1=value1&key2=value2`.
+
+All novel and character ID numbers correspond to their
+entries on [VNDB](https://vndb.org/).
+
+
+## `/novels`
 
 Returns a list of available visual novels. Returns
 an empty list if no novels match the query parameters.
@@ -73,7 +81,7 @@ Example output:
 ```
 
 
-## `/characters?novel_id=<novel id>&name=<character name>`
+## `/characters`
 
 Returns a list of characters in the database. Returns
 an empty list if no characters match the query parameters.
@@ -147,7 +155,7 @@ Example output:
 ```
 
 
-## `/random_quote?novel_id=<novel id>&character_id=<character id>`
+## `/random_quote`
 
 Returns a random quote from the database. Returns 404 if there
 are no quotes matching the query parameters.
@@ -161,7 +169,6 @@ Example output:
 
 ```JSON
 {
-    "id": 1111,
     "text": "Bakabaka",
     "character": {
         "id": 9999,

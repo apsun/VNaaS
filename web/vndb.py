@@ -97,7 +97,7 @@ def get_character(cursor, character_id):
 def get_random_quote(cursor, novel_id=None, character_id=None):
     query = """
         SELECT
-            lines.id, novels.vndb_id, novels.name,
+            novels.vndb_id, novels.name,
             characters.vndb_id, characters.name, lines.line
         FROM lines
         JOIN novels ON
@@ -106,17 +106,20 @@ def get_random_quote(cursor, novel_id=None, character_id=None):
             lines.character_id = characters.vndb_id
     """
     params = []
+    has_where = False
     if novel_id:
-        query += " WHERE novels.vndb_id = ?"
+        query += sql_add_where(has_where, "novels.vndb_id = ?")
         params.append(novel_id)
+        has_where = True
     if character_id:
-        query += " WHERE characters.vndb_id = ?"
+        query += sql_add_where(has_where, "characters.vndb_id = ?")
         params.append(character_id)
+        has_where = True
     query += " ORDER BY RANDOM() LIMIT 1"
     row = cursor.execute(query, params).fetchone()
     if row is None:
         return None
-    novel = vntypes.Novel(row[1], row[2])
-    character = vntypes.Character(row[3], row[4])
-    line = vntypes.Line(row[0], novel, character, row[5])
+    novel = vntypes.Novel(row[0], row[1])
+    character = vntypes.Character(row[2], row[3])
+    line = vntypes.Line(novel, character, row[4])
     return line

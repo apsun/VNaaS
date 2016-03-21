@@ -80,15 +80,9 @@ def read_lines(char_list, set_text_addr, entry_point, dec):
             yield line
 
 
-def parse_lines(char_list, set_text_addr, entry_point, hcb_file, out_file):
-    dec = hcbdecode.HcbDecoder(hcb_file)
-    for line in read_lines(char_list, set_text_addr, entry_point, dec):
-        out_file.write("{0}\t\t{1}\n".format(line.char_name or "---", line.text))
-
-
 def main():
-    if len(sys.argv) != 3:
-        print("usage: python3 hcbparse.py input.hcb output.txt")
+    if len(sys.argv) not in (3, 4):
+        print("usage: python3 hcbparse.py input.hcb output.txt [script.py]")
         return
 
     with open(sys.argv[2], "w", encoding="utf-8") as out_file:
@@ -100,6 +94,22 @@ def main():
                 out_file.write("{0:08x}\n".format(offset))
                 for name in names:
                     out_file.write("  {0}\n".format(name))
+
+            if len(sys.argv) == 3:
+                return
+
+            out_file.write("\n============ CHARACTER LINES ===========\n")
+            script_path = sys.argv[3]
+
+            script_module = {}
+            with open(script_path, encoding="utf-8") as script:
+                exec(script.read(), script_module)
+
+            char_list = [Character(*c) for c in script_module["CHARACTER_LIST"]]
+            set_text_addr = script_module["SET_TEXT_ADDR"]
+            entry_point = script_module["ENTRY_POINT"]
+            for line in read_lines(char_list, set_text_addr, entry_point, dec):
+                    out_file.write("{0}\t\t{1}\n".format(line.char_name or "---", line.text))
 
 
 if __name__ == "__main__":

@@ -13,8 +13,7 @@ class Character:
 
 
 class Line:
-    def __init__(self, id, novel, character, text):
-        self.id = id
+    def __init__(self, novel, character, text):
         self.novel = novel
         self.character = character
         self.text = text

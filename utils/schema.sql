@@ -16,7 +16,6 @@ create table novel_characters(
 );
 
 create table lines(
-    id integer primary key not null,
     novel_id integer not null,
     character_id integer not null,
     line text not null,

@@ -16,7 +16,6 @@ class NovelJSONEncoder(json.JSONEncoder):
             return base
         elif isinstance(o, vntypes.Line):
             return {
-                "id": o.id,
                 "text": o.text,
                 "character": self.default(o.character),
                 "novel": self.default(o.novel)

@@ -22,7 +22,7 @@ def insert_novel_char_links(cursor, novel_vndb_id, char_list):
 
 def insert_lines(cursor, novel_vndb_id, char_list, set_text_addr, entry_point, decoder):
     for line in hcbparse.read_lines(char_list, set_text_addr, entry_point, decoder):
-        cursor.execute("INSERT INTO lines VALUES(NULL, ?, ?, ?)", (novel_vndb_id, line.char_vndb_id, line.text))
+        cursor.execute("INSERT INTO lines VALUES(?, ?, ?)", (novel_vndb_id, line.char_vndb_id, line.text))
 
 
 def hcb_to_db(db_path, hcb_path, novel_vndb_id, novel_name, char_list, set_text_addr, entry_point):
@@ -36,6 +36,7 @@ def hcb_to_db(db_path, hcb_path, novel_vndb_id, novel_name, char_list, set_text_
         insert_lines(cursor, novel_vndb_id, char_list, set_text_addr, entry_point, dec)
     db.commit()
     cursor.close()
+    db.close()
 
 
 def main():

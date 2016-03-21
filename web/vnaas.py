@@ -7,6 +7,7 @@ import flask
 import vndb
 import vnjson
 
+
 app = flask.Flask(__name__)
 database_path = None
 
