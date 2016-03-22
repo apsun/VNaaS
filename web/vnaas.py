@@ -111,14 +111,19 @@ def get_random_quote():
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("usage: python3 vnaas.py database.db")
+    if len(sys.argv) not in (2, 3):
+        print("usage: python3 vnaas.py database.db [port]")
         return
 
     global database_path
     database_path = sys.argv[1]
-    app.debug = True
-    app.run()
+    if len(sys.argv) == 3:
+        port = int(sys.argv[2])
+        app.debug = False
+    else:
+        port = None
+        app.debug = True
+    app.run(host="0.0.0.0", port=port)
 
 
 if __name__ == '__main__':
