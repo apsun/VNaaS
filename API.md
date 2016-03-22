@@ -164,6 +164,7 @@ Query parameters:
 
 - `novel_id`: Optional. Filters results by quotes from the specified novel.
 - `character_id`: Optional. Filters results by quotes from the specified character.
+- `contains`: Optional. Filters results by quotes containing the specified text.
 
 Example output:
 

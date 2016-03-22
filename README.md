@@ -6,9 +6,9 @@ Visual Novel as a Service, for all\* of your visual novel quote needs.
 
 ## FAQ
 
-### How do I use this?
+### What is this?
 
-A demo will be available soon, stay tuned!
+[A demo is worth a thousand words!](http://vnaas.apsun.xyz/)
 
 ### Is there an API?
 

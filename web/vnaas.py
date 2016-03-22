@@ -103,7 +103,8 @@ def get_random_quote():
     novel_id = to_int(novel_id, True)
     character_id = flask.request.args.get("character_id")
     character_id = to_int(character_id, True)
-    quote = vndb.get_random_quote(db, novel_id=novel_id, character_id=character_id)
+    contains = flask.request.args.get("contains")
+    quote = vndb.get_random_quote(db, novel_id=novel_id, character_id=character_id, contains=contains)
     if quote is None:
         flask.abort(404)
     return flask.Response(vnjson.dumps(quote), mimetype="application/json")

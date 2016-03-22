@@ -94,7 +94,7 @@ def get_character(cursor, character_id):
         return None
 
 
-def get_random_quote(cursor, novel_id=None, character_id=None):
+def get_random_quote(cursor, novel_id=None, character_id=None, contains=None):
     query = """
         SELECT
             novels.vndb_id, novels.name,
@@ -114,6 +114,10 @@ def get_random_quote(cursor, novel_id=None, character_id=None):
     if character_id:
         query += sql_add_where(has_where, "characters.vndb_id = ?")
         params.append(character_id)
+        has_where = True
+    if contains:
+        query += sql_add_where(has_where, "lines.line LIKE '%' || ? || '%'")
+        params.append(contains)
         has_where = True
     query += " ORDER BY RANDOM() LIMIT 1"
     row = cursor.execute(query, params).fetchone()
