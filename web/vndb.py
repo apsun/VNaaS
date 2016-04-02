@@ -10,6 +10,10 @@ def sql_add_where(has_where, clause):
         return " WHERE " + clause
 
 
+def sql_build_in(int_list):
+    return "({0})".format(",".join(map(str, int_list)))
+
+
 def get_all_novels(cursor, novel_id=None, character_id=None, name=None, include_chars=True):
     novel_query = """
         SELECT
@@ -94,7 +98,7 @@ def get_character(cursor, character_id):
         return None
 
 
-def get_random_quote(cursor, novel_id=None, character_id=None, contains=None):
+def get_random_quote(cursor, novel_ids=None, character_ids=None, contains=None):
     query = """
         SELECT
             novels.vndb_id, novels.name,
@@ -107,13 +111,11 @@ def get_random_quote(cursor, novel_id=None, character_id=None, contains=None):
     """
     params = []
     has_where = False
-    if novel_id:
-        query += sql_add_where(has_where, "novels.vndb_id = ?")
-        params.append(novel_id)
+    if novel_ids:
+        query += sql_add_where(has_where, "novels.vndb_id IN " + sql_build_in(novel_ids))
         has_where = True
-    if character_id:
-        query += sql_add_where(has_where, "characters.vndb_id = ?")
-        params.append(character_id)
+    if character_ids:
+        query += sql_add_where(has_where, "characters.vndb_id IN " + sql_build_in(character_ids))
         has_where = True
     if contains:
         query += sql_add_where(has_where, "lines.line LIKE '%' || ? || '%'")

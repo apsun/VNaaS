@@ -9,6 +9,9 @@ Query parameters should be added using the standard format,
 All novel and character ID numbers correspond to their
 entries on [VNDB](https://vndb.org/).
 
+Note that Ruby text (e.g. Furigana) is included in the output and is
+expressed in format `[ruby|base]`. For example: `[かんじ|漢字]`.
+
 
 ## `/novels`
 
@@ -162,8 +165,8 @@ are no quotes matching the query parameters.
 
 Query parameters:
 
-- `novel_id`: Optional. Filters results by quotes from the specified novel.
-- `character_id`: Optional. Filters results by quotes from the specified character.
+- `novel_ids`: Optional. Filters results by quotes from the specified novels (comma-separated list).
+- `character_ids`: Optional. Filters results by quotes from the specified characters (comma-separated list).
 - `contains`: Optional. Filters results by quotes containing the specified text.
 
 Example output:

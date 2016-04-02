@@ -9,7 +9,7 @@ import vnjson
 
 
 app = flask.Flask(__name__)
-database_path = None
+app.config["DATABASE_PATH"] = None
 
 
 def ruby_to_html(s):
@@ -31,10 +31,20 @@ def to_int(value, ignore_none):
         flask.abort(400)
 
 
+def to_int_list(value):
+    if value is None:
+        return None
+    value_list = value.split(",")
+    try:
+        return [int(x) for x in value_list]
+    except ValueError:
+        flask.abort(400)
+
+
 def get_db():
     db = getattr(flask.g, "_database", None)
     if db is None:
-        db = flask.g._database = sqlite3.connect(database_path)
+        db = flask.g._database = sqlite3.connect(app.config["DATABASE_PATH"])
     return db
 
 
@@ -99,12 +109,12 @@ def get_character(character_id):
 @app.route("/api/v1/random_quote")
 def get_random_quote():
     db = get_db()
-    novel_id = flask.request.args.get("novel_id")
-    novel_id = to_int(novel_id, True)
-    character_id = flask.request.args.get("character_id")
-    character_id = to_int(character_id, True)
+    novel_ids = flask.request.args.get("novel_ids", flask.request.args.get("novel_id"))
+    novel_ids = to_int_list(novel_ids)
+    character_ids = flask.request.args.get("character_ids", flask.request.args.get("character_id"))
+    character_ids = to_int_list(character_ids)
     contains = flask.request.args.get("contains")
-    quote = vndb.get_random_quote(db, novel_id=novel_id, character_id=character_id, contains=contains)
+    quote = vndb.get_random_quote(db, novel_ids=novel_ids, character_ids=character_ids, contains=contains)
     if quote is None:
         flask.abort(404)
     return flask.Response(vnjson.dumps(quote), mimetype="application/json")
@@ -115,8 +125,7 @@ def main():
         print("usage: python3 vnaas.py database.db [port]")
         return
 
-    global database_path
-    database_path = sys.argv[1]
+    app.config["DATABASE_PATH"] = sys.argv[1]
     if len(sys.argv) == 3:
         port = int(sys.argv[2])
         app.debug = False
