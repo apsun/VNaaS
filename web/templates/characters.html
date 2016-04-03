@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <title>VNaaS {% if novel is not none %}&gt; Novels &gt; {{ novel.name }} {% endif %}&gt; Characters</title>
+    </head>
+    <body>
+        <header>
+            <h1>Visual Novel as a Service</h1>
+            <span>{% if novel is not none %}Novels &gt; {{ novel.name }} &gt; {% endif %}Characters</span>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Novels</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for character in character_list %}
+                <tr>
+                    <td><a href="https://vndb.org/c{{ character.vndb_id }}">{{ character.vndb_id }}</a></td>
+                    <td>{{ character.name }}</td>
+                    <td><a href="/novels?character_id={{ character.vndb_id }}">View</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <footer>Find the full API on <a href="https://github.com/apsun/VNaaS/blob/master/API.md">GitHub</a>!</footer>
+    </body>
+</html>

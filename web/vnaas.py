@@ -60,8 +60,42 @@ def index():
     db = get_db()
     quote = vndb.get_random_quote(db)
     return flask.render_template("index.html",
-        quote_text = flask.Markup(ruby_to_html(quote.text)),
-        quote_cite = format_cite(quote)
+        quote_text=flask.Markup(ruby_to_html(quote.text)),
+        quote_cite=format_cite(quote)
+    )
+
+
+@app.route("/novels")
+def novels():
+    db = get_db()
+    character_id = flask.request.args.get("character_id")
+    character_id = to_int(character_id, True)
+    character = None
+    if character_id is not None:
+        character = vndb.get_character(db, character_id=character_id)
+        if character is None:
+            flask.abort(404)
+    novel_list = vndb.get_all_novels(db, character_id=character_id)
+    return flask.render_template("novels.html",
+        novel_list=novel_list,
+        character=character
+    )
+
+
+@app.route("/characters")
+def characters():
+    db = get_db()
+    novel_id = flask.request.args.get("novel_id")
+    novel_id = to_int(novel_id, True)
+    novel = None
+    if novel_id is not None:
+        novel = vndb.get_novel(db, novel_id=novel_id)
+        if novel is None:
+            flask.abort(404)
+    character_list = vndb.get_all_characters(db, novel_id=novel_id)
+    return flask.render_template("characters.html",
+        character_list=character_list,
+        novel=novel
     )
 
 

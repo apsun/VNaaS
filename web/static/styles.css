@@ -3,10 +3,19 @@
 
 header {
     font-family: "Noto Serif", serif;
-    font-size: 42px;
     text-align: center;
     color: #333;
     margin: 36px;
+}
+
+header h1 {
+    margin: 0px;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+header span {
+    font-size: 28px;
 }
 
 blockquote {
@@ -25,9 +34,43 @@ blockquote p {
     margin-top: 0;
 }
 
+td a {
+    text-decoration: none;
+}
+
+table {
+    font-family: "Noto Sans JP", "Meiryo", "MS PGothic",　sans-serif;
+    font-size: 28px;
+    color: #333;
+    display: table;
+    margin: auto;
+    max-width: 800px;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid #aaa;
+}
+
+thead tr {
+    background-color: #ccc;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ddd;
+}
+
 footer {
-    font-family: 'Noto Serif', serif;
-    font-size: 18px;
+    font-family: "Noto Serif", serif;
+    font-size: 20px;
     text-align: center;
     color: #333;
     margin: 36px;
