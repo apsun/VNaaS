@@ -1,6 +1,6 @@
 import re
 import sqlite3
-import vntypes
+from . import vntypes
 
 
 def sql_add_where(has_where, clause):

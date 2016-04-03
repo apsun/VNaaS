@@ -54,10 +54,10 @@ the steps are as follows:
 2. Populate the database
     - You will need the original .hcb files from the game!
     - Find the resource extractor script for the game in `utils/favorite/hcbinfo`
-    - Run `python3 utils/favorite/hcb2db.py data.db input.hcb extractor.py`
+    - Run `python3 -m utils.favorite.hcb2db data.db input.hcb path/to/extractor.py`
     - Repeat for any other games you wish to add
 3. Start the web server
-    - Run `python3 web/vnaas.py data.db`
+    - Run `python3 -m web.wsgi data.db`
 
 ### Shut up and take my donations!
 
@@ -71,6 +71,7 @@ appreciated :-)
 
 - Python 3
 - [Flask](http://flask.pocoo.org/)
+- [Tornado](http://www.tornadoweb.org/)
 - [SQLite3](https://www.sqlite.org/download.html) (sqlite3 binary)
 
 ## License

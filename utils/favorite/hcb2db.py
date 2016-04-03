@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import sqlite3
 import sys
-
-import hcbdecode
-import hcbparse
+from . import hcbdecode, hcbparse
 
 
 def insert_novel(cursor, novel_vndb_id, novel_name):
