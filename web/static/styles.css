@@ -34,7 +34,7 @@ blockquote p {
     margin-top: 0;
 }
 
-td a {
+header a, td a {
     text-decoration: none;
 }
 

@@ -8,7 +8,7 @@
     <body>
         <header>
             <h1>Visual Novel as a Service</h1>
-            <span>{% if character is not none %}Characters &gt; {{ character.name }} &gt; {% endif %}Novels</span>
+            <span>{% if character is not none %}<a href="/characters">Characters</a> &gt; {{ character.name }} &gt; {% endif %}Novels</span>
         </header>
         <table>
             <thead>

@@ -8,7 +8,7 @@
     <body>
         <header>
             <h1>Visual Novel as a Service</h1>
-            <span>{% if novel is not none %}Novels &gt; {{ novel.name }} &gt; {% endif %}Characters</span>
+            <span>{% if novel is not none %}<a href="/novels">Novels</a> &gt; {{ novel.name }} &gt; {% endif %}Characters</span>
         </header>
         <table>
             <thead>
