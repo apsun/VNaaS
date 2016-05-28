@@ -22,6 +22,7 @@ Certainly, [here's the documentation!](API.md)
 | 星空のメモリア Eternal Heart             | Hoshizora no Memoria: Eternal Heart             |
 | いろとりどりのセカイ                     | Irotoridori no Sekai                            |
 | いろとりどりのヒカリ                     | Irotoridori no Hikari                           |
+| 紅い瞳に映るセカイ                      | Akai Hitomi ni Utsuru Sekai                     |
 | アストラエアの白き永遠                   | AstralAir no Shiroki Towa                       |
 
 ### What about (novel name here)?
@@ -39,6 +40,7 @@ No, only official translations are allowed.
 
 Use your imagination! Examples include:
 
+- [Quote app](https://github.com/apsun/QuoteLock)
 - Browser homepage
 - Twitter bot
 - Email signature
@@ -54,10 +56,10 @@ the steps are as follows:
 2. Populate the database
     - You will need the original .hcb files from the game!
     - Find the resource extractor script for the game in `utils/favorite/hcbinfo`
-    - Run `python3 -m utils.favorite.hcb2db data.db input.hcb path/to/extractor.py`
+    - Run `python3 utils/favorite/hcbdecode.py data.db input.hcb path/to/extractor.py`
     - Repeat for any other games you wish to add
 3. Start the web server
-    - Run `python3 -m web.wsgi data.db`
+    - Run `python3 web/wsgi.py data.db`
 
 ### Shut up and take my donations!
 

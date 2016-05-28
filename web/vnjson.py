@@ -1,5 +1,5 @@
 import json
-from . import vntypes
+import vntypes
 
 
 class NovelJSONEncoder(json.JSONEncoder):

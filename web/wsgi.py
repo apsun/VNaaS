@@ -3,7 +3,7 @@ import sys
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
-from . import vnaas
+import vnaas
 
 
 def main():

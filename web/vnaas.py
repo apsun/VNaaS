@@ -4,7 +4,8 @@ import re
 import sqlite3
 import sys
 import flask
-from . import vndb, vnjson
+import vndb
+import vnjson
 
 
 app = flask.Flask(__name__)

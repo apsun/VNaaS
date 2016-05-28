@@ -12,7 +12,7 @@
 # The "current character" does not persist after SetText().
 
 import sys
-from . import hcbdecode
+import hcbdecode
 
 
 class Character:
