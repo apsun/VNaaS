@@ -109,6 +109,7 @@ def get_all_novels(g, novel_id=None, character_id=None, name=None, include_chars
         if include_chars:
             nobj.characters = get_all_characters(g, novel_id=n.vndb_id, include_novels=False)
         ret.append(nobj)
+    ret.sort(key=lambda n: n.vndb_id)
     return ret
 
 
@@ -132,6 +133,7 @@ def get_all_characters(g, character_id=None, novel_id=None, name=None, include_n
         if include_novels:
             cobj.novels = get_all_novels(g, character_id=c.vndb_id, include_chars=False)
         ret.append(cobj)
+    ret.sort(key=lambda c: c.vndb_id)
     return ret
 
 
