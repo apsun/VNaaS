@@ -39,4 +39,4 @@ Usage: `hcb2db.py output.py input.hcb info.py`
 
 Similar to `hcb2db.py`, but instead of adding the lines
 into a database, it creates a Python script containing
-the lines instead. This can be imported into 
+the lines instead.

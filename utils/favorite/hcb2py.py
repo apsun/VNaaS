@@ -22,7 +22,9 @@ def hcb_to_py(output_path, hcb_path, novel_vndb_id, novel_name, char_list, set_t
         dec = hcbdecode.HcbDecoder(hcb_file)
         quotes = get_line_map(char_list, set_text_addr, entry_point, dec)
     with open(output_path, "w", encoding="utf-8") as out_file:
+        out_file.write("# -*- coding: utf-8 -*-\n")
         out_file.write("# Generated with hcb2py\n")
+        out_file.write("from __future__ import unicode_literals\n")
         out_file.write("vndb_id = ")
         out_file.write(repr(novel_vndb_id))
         out_file.write("\n")
