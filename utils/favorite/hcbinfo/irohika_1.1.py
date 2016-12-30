@@ -1,8 +1,8 @@
-NOVEL_VNDB_ID = 10028
-NOVEL_NAME = "いろとりどりのヒカリ"
-SET_TEXT_ADDR = 0x41138
-ENTRY_POINT = 0x83526
-CHARACTER_LIST = [
+vndb_id = 10028
+name = "いろとりどりのヒカリ"
+set_text_offset = 0x41138
+entry_point = 0x83526
+character_list = [
     (1793,  0x0004, "真紅"),
     (1888,  0x019a, "加奈"),
     (1889,  0x03d5, "澪"),

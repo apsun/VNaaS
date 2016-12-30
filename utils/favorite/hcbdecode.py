@@ -193,11 +193,11 @@ def decode_hcb(hcb_file, out_file):
 
 def main():
     if len(sys.argv) != 3:
-        print("usage: python3 hcbdecode.py input.hcb output.txt")
+        print("usage: python3 hcbdecode.py output.txt input.hcb")
         return
 
-    with open(sys.argv[2], "w", encoding="utf-8") as out_file:
-        with open(sys.argv[1], "rb") as hcb_file:
+    with open(sys.argv[1], "w", encoding="utf-8") as out_file:
+        with open(sys.argv[2], "rb") as hcb_file:
             decode_hcb(hcb_file, out_file)
 
 

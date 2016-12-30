@@ -1,8 +1,8 @@
-NOVEL_VNDB_ID = 5834
-NOVEL_NAME = "いろとりどりのセカイ"
-SET_TEXT_ADDR = 0x375b1
-ENTRY_POINT = 0x7367d
-CHARACTER_LIST = [
+vndb_id = 5834
+name = "いろとりどりのセカイ"
+set_text_offset = 0x375b1
+entry_point = 0x7367d
+character_list = [
     (1793,  0x0004, "真紅"),
     (1888,  0x0124, "加奈"),
     (1889,  0x0332, "澪"),

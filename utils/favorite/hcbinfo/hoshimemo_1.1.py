@@ -1,8 +1,8 @@
-NOVEL_VNDB_ID = 1474
-NOVEL_NAME = "星空のメモリア"
-SET_TEXT_ADDR = 0x4987f
-ENTRY_POINT = 0x8c770
-CHARACTER_LIST = [
+vndb_id = 1474
+name = "星空のメモリア"
+set_text_offset = 0x4987f
+entry_point = 0x8c770
+character_list = [
     (3930,  0x0004, "メア"),
     (3910,  0x00dc, "明日歩"),
     (3932,  0x017f, "こもも"),

@@ -1,8 +1,8 @@
-NOVEL_VNDB_ID = 17147
-NOVEL_NAME = "紅い瞳に映るセカイ"
-SET_TEXT_ADDR = 0x45454
-ENTRY_POINT = 0x88efc
-CHARACTER_LIST = [
+vndb_id = 17147
+name = "紅い瞳に映るセカイ"
+set_text_offset = 0x45454
+entry_point = 0x88efc
+character_list = [
     (1793,  0x0004, "真紅"),
     (1888,  0x019a, "加奈"),
     (1889,  0x03d5, "澪"),

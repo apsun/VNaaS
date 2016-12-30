@@ -2,7 +2,7 @@
 import sqlite3
 import sys
 import hcbdecode
-import hcbparse
+import hcbtext
 
 
 def insert_novel(cursor, novel_vndb_id, novel_name):
@@ -20,22 +20,10 @@ def insert_novel_char_links(cursor, novel_vndb_id, char_list):
 
 
 def insert_lines(cursor, novel_vndb_id, char_list, set_text_addr, entry_point, decoder):
-    line_counts = {}
-    narrator_lines = 0
-    short_lines = 0
-    for line in hcbparse.read_lines(char_list, set_text_addr, entry_point, decoder):
+    for line in hcbtext.read_lines(char_list, set_text_addr, entry_point, decoder, True):
         if line.char_vndb_id == 0:
-            narrator_lines += 1
             continue
-        if len(line.text.replace("\u2026", "")) < 4:
-            short_lines += 1
-            continue
-        line_counts[line.char_vndb_id] = line_counts.get(line.char_vndb_id, 0) + 1
         cursor.execute("INSERT INTO lines VALUES(?, ?, ?)", (novel_vndb_id, line.char_vndb_id, line.text))
-    # print("Narrator (ignored) -> " + str(narrator_lines))
-    # print("Short (ignored) -> " + str(short_lines))
-    # for k, v in line_counts.items():
-    #     print(str(k) + " -> " + str(v))
 
 
 def hcb_to_db(db_path, hcb_path, novel_vndb_id, novel_name, char_list, set_text_addr, entry_point):
@@ -54,7 +42,7 @@ def hcb_to_db(db_path, hcb_path, novel_vndb_id, novel_name, char_list, set_text_
 
 def main():
     if len(sys.argv) != 4:
-        print("usage: hcb2db.py database.db input.hcb script.py")
+        print("usage: hcb2db.py output.db input.hcb info.py")
         return
 
     db_path = sys.argv[1]
@@ -68,11 +56,11 @@ def main():
     hcb_to_db(
         db_path, 
         hcb_path, 
-        script_module["NOVEL_VNDB_ID"], 
-        script_module["NOVEL_NAME"], 
-        [hcbparse.Character(*c) for c in script_module["CHARACTER_LIST"]],
-        script_module["SET_TEXT_ADDR"],
-        script_module["ENTRY_POINT"])
+        script_module["vndb_id"], 
+        script_module["name"], 
+        [hcbtext.Character(*c) for c in script_module["character_list"]],
+        script_module["set_text_offset"],
+        script_module["entry_point"])
 
 
 if __name__ == "__main__":

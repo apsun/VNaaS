@@ -1,8 +1,8 @@
-NOVEL_VNDB_ID = 12984
-NOVEL_NAME = "アストラエアの白き永遠"
-SET_TEXT_ADDR = 0x5a7b3
-ENTRY_POINT = 0xb709b
-CHARACTER_LIST = [
+vndb_id = 12984
+name = "アストラエアの白き永遠"
+set_text_offset = 0x5a7b3
+entry_point = 0xb709b
+character_list = [
     (16435, 0x0004, "雪々"),
     (17042, 0x0216, "落葉"),
     (17041, 0x037a, "一夏"),
