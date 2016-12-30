@@ -12,7 +12,7 @@ class Character:
         self.novels = novels
 
 
-class Line:
+class Quote:
     def __init__(self, novel, character, text):
         self.novel = novel
         self.character = character

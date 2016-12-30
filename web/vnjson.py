@@ -14,14 +14,14 @@ class NovelJSONEncoder(json.JSONEncoder):
             if o.novels is not None:
                 base["novels"] = [self.default(n) for n in o.novels]
             return base
-        elif isinstance(o, vntypes.Line):
+        elif isinstance(o, vntypes.Quote):
             return {
                 "text": o.text,
                 "character": self.default(o.character),
                 "novel": self.default(o.novel)
             }
         else:
-            return super().default(o)
+            return super(NovelJSONEncoder, self).default(o)
 
 
 def dumps(o):

@@ -23,7 +23,7 @@ def insert_lines(cursor, novel_vndb_id, char_list, set_text_addr, entry_point, d
     for line in hcbtext.read_lines(char_list, set_text_addr, entry_point, decoder, True):
         if line.char_vndb_id == 0:
             continue
-        cursor.execute("INSERT INTO lines VALUES(?, ?, ?)", (novel_vndb_id, line.char_vndb_id, line.text))
+        cursor.execute("INSERT INTO quotes VALUES(?, ?, ?)", (novel_vndb_id, line.char_vndb_id, line.text))
 
 
 def hcb_to_db(db_path, hcb_path, novel_vndb_id, novel_name, char_list, set_text_addr, entry_point):

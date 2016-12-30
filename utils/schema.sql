@@ -15,10 +15,10 @@ create table novel_characters(
     foreign key(character_id) references characters(vndb_id)
 );
 
-create table lines(
+create table quotes(
     novel_id integer not null,
     character_id integer not null,
-    line text not null,
+    text text not null,
     foreign key(novel_id) references novels(vndb_id),
     foreign key(character_id) references characters(vndb_id)
 );
