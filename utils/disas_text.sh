@@ -14,11 +14,14 @@ else
     pyexe="python"
 fi
 
+echo "Creating output directory"
+mkdir -p "$outpath"
+
 echo ">> Hoshizora no Memoria"
 $pyexe "$hcbtextpath" "$outpath/hoshimemo.txt" "$hcbpath/Memoria.hcb" "$hcbinfopath/hoshimemo_1.1.py"
 
 echo ">> Hoshizora no Memoria Eternal Heart"
-$pyexe "$hcbtextpath" "$outpath/hoshimemo_eh.txt" "$hcbpath/Hoshimemo_EH.hcb" "$hcbinfopath/eternalheart_1.2.py"
+$pyexe "$hcbtextpath" "$outpath/eternalheart.txt" "$hcbpath/Hoshimemo_EH.hcb" "$hcbinfopath/eternalheart_1.2.py"
 
 echo ">> Irotoridori no Sekai"
 $pyexe "$hcbtextpath" "$outpath/iroseka.txt" "$hcbpath/World.hcb" "$hcbinfopath/iroseka_1.1.py"
