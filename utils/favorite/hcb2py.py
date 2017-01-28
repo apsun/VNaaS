@@ -21,9 +21,17 @@ def hcb_to_py(output_path, hcb_path, novel_vndb_id, novel_name, char_list, set_t
     with open(hcb_path, "rb") as hcb_file:
         dec = hcbdecode.HcbDecoder(hcb_file)
         quotes = get_line_map(char_list, set_text_addr, entry_point, dec)
+        char_map = {c.vndb_id: c.name for c in char_list}
     with open(output_path, "w", encoding="utf-8") as out_file:
         out_file.write("# -*- coding: utf-8 -*-\n")
         out_file.write("# Generated with hcb2py\n")
+        out_file.write("# Statistics:\n")
+        for char_id, quote_list in quotes.items():
+            out_file.write("#   ")
+            out_file.write(char_map[char_id])
+            out_file.write(" -> ")
+            out_file.write(str(len(quote_list)))
+            out_file.write(" quotes\n")
         out_file.write("from __future__ import unicode_literals\n")
         out_file.write("vndb_id = ")
         out_file.write(repr(novel_vndb_id))
@@ -32,7 +40,7 @@ def hcb_to_py(output_path, hcb_path, novel_vndb_id, novel_name, char_list, set_t
         out_file.write(repr(novel_name))
         out_file.write("\n")
         out_file.write("characters = ")
-        out_file.write(repr({c.vndb_id: c.name for c in char_list}))
+        out_file.write(repr(char_map))
         out_file.write("\n")
         out_file.write("quotes = ")
         out_file.write(repr(quotes))

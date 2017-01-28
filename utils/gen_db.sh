@@ -35,3 +35,6 @@ $pyexe "$hcb2dbpath" "$dbpath" "$hcbpath/Shinku.hcb" "$hcbinfopath/akaihitomi_1.
 
 echo ">> AstralAir no Shiroki Towa"
 $pyexe "$hcb2dbpath" "$dbpath" "$hcbpath/Snow.hcb" "$hcbinfopath/astralair_1.1.py"
+
+echo ">> AstralAir no Shiroki Towa Finale"
+$pyexe "$hcb2dbpath" "$dbpath" "$hcbpath/AstralAirFinale.hcb" "$hcbinfopath/astralfinale_1.1.py"

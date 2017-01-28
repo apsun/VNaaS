@@ -1,7 +1,6 @@
 #!/bin/bash
 scriptdir=`dirname $0`
 outpath="$scriptdir/../data/py"
-sqliteexe="$scriptdir/sqlite3.exe"
 hcb2pypath="$scriptdir/favorite/hcb2py.py"
 hcbpath="$scriptdir/../data/hcb"
 hcbinfopath="$scriptdir/favorite/hcbinfo"
@@ -34,3 +33,6 @@ $pyexe "$hcb2pypath" "$outpath/akaihitomi.py" "$hcbpath/Shinku.hcb" "$hcbinfopat
 
 echo ">> AstralAir no Shiroki Towa"
 $pyexe "$hcb2pypath" "$outpath/astralair.py" "$hcbpath/Snow.hcb" "$hcbinfopath/astralair_1.1.py"
+
+echo ">> AstralAir no Shiroki Towa Finale"
+$pyexe "$hcb2pypath" "$outpath/astralfinale.py" "$hcbpath/AstralAirFinale.hcb" "$hcbinfopath/astralfinale_1.1.py"
