@@ -76,8 +76,8 @@ appreciated :-)
 ## Requirements
 
 - Python 3
-- [Flask](http://flask.pocoo.org/)
-- [SQLite3](https://www.sqlite.org/download.html)
+- [Flask](http://flask.pocoo.org/) (if running web server)
+- [SQLite3](https://www.sqlite.org/download.html) (if using SQL database mode)
 
 ## License
 

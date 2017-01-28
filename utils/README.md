@@ -13,4 +13,3 @@ of restrictions on your server.
 allowed to access files/databases on your server (e.g. GAE/Heroku)
 
 `dl_patch.sh`: This is how I get the HCB files. Is it legal? Ehh... Maybe?
-I mean, the files are publicly available, right?
