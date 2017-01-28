@@ -24,6 +24,7 @@ Certainly, [here's the documentation!](API.md)
 | いろとりどりのヒカリ                     | Irotoridori no Hikari                           |
 | 紅い瞳に映るセカイ                      | Akai Hitomi ni Utsuru Sekai                     |
 | アストラエアの白き永遠                   | AstralAir no Shiroki Towa                       |
+| アストラエアの白き永遠 Finale            | AstralAir no Shiroki Towa Finale                |
 
 ### What about (novel name here)?
 
@@ -76,8 +77,7 @@ appreciated :-)
 
 - Python 3
 - [Flask](http://flask.pocoo.org/)
-- [Tornado](http://www.tornadoweb.org/)
-- [SQLite3](https://www.sqlite.org/download.html) (sqlite3 binary)
+- [SQLite3](https://www.sqlite.org/download.html)
 
 ## License
 

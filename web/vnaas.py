@@ -17,6 +17,7 @@ vndb.initialize(
         "irohika",
         "akaihitomi",
         "astralair",
+        "astralfinale",
     ]
 )
 
