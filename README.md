@@ -33,10 +33,6 @@ just a student with an unhealthy addiction for visual novels. If you
 wish to see your favorite game added to the list, you can help by creating
 a resource extractor module for that game (more info coming soon).
 
-### My game has a fansub, will it be added to the database?
-
-No, only official translations are allowed.
-
 ### What can I use this for?
 
 Use your imagination! Examples include:
@@ -46,38 +42,12 @@ Use your imagination! Examples include:
 - Twitter bot
 - Email signature
 
-### I cloned the repository, how do I run this?
-
-You will have to generate the data yourself, but don't worry! All the tools
-needed to do so are provided in the `utils` directory. For the supported games,
-the steps are as follows:
-
-1. Get the data
-  - Place the HCB files in `data/hcb`
-
-2. Convert the data
-  - Run `utils/gen_py.sh`
-
-3. Copy the data
-  - Copy the files from `data/py` to `web/data`
-
-4. Run the web server
-  - `python web/vnaas.py`
-
-
-### Shut up and take my donations!
-
-Please support the developers of the games instead, they're the ones who
-truly make this possible!
-
-Of course, you may donate your time and effort instead - those are greatly
-appreciated :-)
-
 ## Requirements
 
 - Python 3
 - [Flask](http://flask.pocoo.org/) (if running web server)
-- [SQLite3](https://www.sqlite.org/download.html) (if using SQL database mode)
+- [gevent](http://www.gevent.org/) (if running web server locally)
+- [SQLite3](https://www.sqlite.org/download.html) (if using SQL database)
 
 ## License
 
