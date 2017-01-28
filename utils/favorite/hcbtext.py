@@ -64,7 +64,7 @@ def read_lines(char_list, set_text_addr, entry_point, dec, skip_short=False):
 
 def main():
     if len(sys.argv) != 4:
-        print("usage: python3 hcbparse.py output.txt input.hcb info.py")
+        print("usage: python3 hcbtext.py output.txt input.hcb info.py")
         return
 
     with open(sys.argv[1], "w", encoding="utf-8") as out_file:

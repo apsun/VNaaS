@@ -1,10 +1,11 @@
 #!/bin/bash
 scriptdir=`dirname $0`
-dbpath="$scriptdir/../data/vnaas.db"
-sqliteexe="sqlite3"
+datapath="$scriptdir/../data"
+dbpath="$datapath/vnaas.db"
+hcbpath="$datapath/hcb"
 hcb2dbpath="$scriptdir/favorite/hcb2db.py"
-hcbpath="$scriptdir/../data/hcb"
 hcbinfopath="$scriptdir/favorite/hcbinfo"
+sqliteexe="sqlite3"
 pyexe=""
 if command -v "python3" &>/dev/null; then
     pyexe="python3"

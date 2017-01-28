@@ -53,16 +53,16 @@ needed to do so are provided in the `utils` directory. For the supported games,
 the steps are as follows:
 
 1. Get the data
-    - Place the HCB files in `data/hcb`
+  - Place the HCB files in `data/hcb`
 
 2. Convert the data
-    - Run `utils/gen_py.sh`
+  - Run `utils/gen_py.sh`
 
 3. Copy the data
-    - Copy the files from `data/py` to `web/data`
+  - Copy the files from `data/py` to `web/data`
 
 4. Run the web server
-    - `python web/vnaas.py`
+  - `python web/vnaas.py`
 
 
 ### Shut up and take my donations!

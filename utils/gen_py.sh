@@ -1,8 +1,9 @@
 #!/bin/bash
 scriptdir=`dirname $0`
-outpath="$scriptdir/../data/py"
+datapath="$scriptdir/../data"
+outpath="$datapath/py"
+hcbpath="$datapath/hcb"
 hcb2pypath="$scriptdir/favorite/hcb2py.py"
-hcbpath="$scriptdir/../data/hcb"
 hcbinfopath="$scriptdir/favorite/hcbinfo"
 pyexe=""
 if command -v "python3" &>/dev/null; then

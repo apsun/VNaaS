@@ -49,7 +49,7 @@ def hcb_to_py(output_path, hcb_path, novel_vndb_id, novel_name, char_list, set_t
 
 def main():
     if len(sys.argv) != 4:
-        print("usage: hcb2db.py output.py input.hcb info.py")
+        print("usage: hcb2py.py output.py input.hcb info.py")
         return
 
     output_path = sys.argv[1]
