@@ -51,7 +51,10 @@ def initialize(**kwargs):
     file_list = kwargs["file_list"]
     for f in file_list:
         # Read the file into memory
-        mod = getattr(__import__(file_dir + "." + f, {}, {}, [], 0), f)
+        try:
+            mod = getattr(__import__(file_dir + "." + f, {}, {}, [], 0), f)
+        except:
+            continue
         novel_id = mod.vndb_id
         novel_name = mod.name
         novel_characters = mod.characters
