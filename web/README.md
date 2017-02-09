@@ -11,7 +11,7 @@ less RAM.
 ## Local deployment
 
 1. Download the dependencies
- - `pip install flask gevent`
+ - `pip install flask tornado`
 
 2. Run the server (port defaults to 8080 if not specified)
  - `python wsgi.py [port]`

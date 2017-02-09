@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import sys
-import gevent.wsgi
+from tornado.wsgi import WSGIContainer
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
 import vnaas
 
 PORT = 8080
@@ -13,8 +15,10 @@ def main():
     else:
         print("usage: wsgi.py [port]")
         return
-    http_server = gevent.wsgi.WSGIServer(("0.0.0.0", port), vnaas.app)
-    http_server.serve_forever()
+    http_server = HTTPServer(WSGIContainer(vnaas.app))
+    http_server.listen(port)
+    IOLoop.instance().start()
+
 
 if __name__ == "__main__":
     main()
